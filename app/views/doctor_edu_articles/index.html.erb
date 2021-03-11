@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Upload Article',  new_doctor_edu_article_path, class:'btn btn-warning mr-3', style:"float: right;"%>
+<table align='center'>
+
+<h1 align="center">My Articles</h1>
+<% @doctor_edu_articles.each do |doctor_edu_article| %>
+  
+  <tr>
+    
+    <td>
+      
+      <div class="alert alert-primary mr-3 " role="alert" style="width: 500px; height: 100px;">
+        <b>Article Name: </b><%= doctor_edu_article.article_name %><br>
+        <b>About Article: </b><%= doctor_edu_article.about_article %><br><br>
+      </div>
+
+    </td>
+
+       <td ><%= link_to 'Show', doctor_edu_article, class:"btn btn-outline-primary mr-3"%></td>
+      
+       <td>
+
+        <%= link_to 'Destroy', doctor_edu_article, 
+          class:"btn btn-outline-danger mr-3",
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+         
+       </td>
+   
+  </tr>
+
+   
+<% end %>
+</table> 
+
+
+

@@ -1,0 +1,65 @@
+<center><h2>Change Your Password</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+   <!-- <div class="form-outline mb-4">
+   
+    <%#= f.text_field :name, style:"width:500px;", placeholder:'Enter Name', class:"form-control", autofocus: true%>
+  </div>
+
+  <div class="form-outline mb-4">
+    
+    <%#= f.text_field :designation, style:"width:500px;", placeholder:'Enter Designation', class:"form-control" %>
+  </div>
+ -->
+  <div class="form-outline mb-4">
+   
+    <%= f.email_field :email, autocomplete: "email", style:"width:500px;", class:"form-control" %>
+  </div>
+
+  <!--  <div class="form-outline mb-4">
+   
+    <%#= f.text_field :location, style:"width:500px;", placeholder:'Enter Hospetal Location', class:"form-control" %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%#= f.file_field :image, style:"width:500px;", placeholder:'Upload your photo', class:"form-control" %>
+    
+  </div> -->
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="form-outline mb-1">
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+    <i>(leave blank if you don't want to change it)</i>
+    <%= f.password_field :password, autocomplete: "new-password", style:"width:500px;", placeholder:'Enter New Password', class:"form-control" %>
+    
+  </div>
+
+  <div class="form-outline mb-4">
+    
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", style:"width:500px;", placeholder:'Reenter New Password', class:"form-control" %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", style:"width:500px;", placeholder:'Enter Current Password', class:"form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update", class:'btn btn-primary'  %>
+  </div>
+<% end %>
+<hr><br>
+<h3>Account cancelation block</h3><br>
+
+<p>If you are want to delate your account....!<%= button_to "Delete account", registration_path(resource_name), class:'btn btn-danger', data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%#= link_to "Back", :back %>
+</center>

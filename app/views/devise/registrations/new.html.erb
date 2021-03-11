@@ -1,0 +1,77 @@
+<center><br><h2>Doctor Registration</h2><br>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+
+<!-- Email input -->
+  <div class="form-outline mb-4">
+
+    <%= f.text_field :name, autofocus: true, style:"width:500px;", placeholder:'Enter Name', class:"form-control" %>
+
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+     <%= f.text_field :designation, style:"width:500px;", placeholder:'Enter Designation', class:"form-control" %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= f.email_field :email, autocomplete: "email", style:"width:500px;", placeholder:'Enter Email', class:"form-control"  %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= f.text_field :location, style:"width:500px;", placeholder:'Enter Location', class:"form-control" %>
+    
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= f.file_field :image, style:"width:500px;", placeholder:'Upload your photo', class:"form-control" %>
+    
+  </div>
+
+  <div class="form-outline mb-4">
+    
+    <%= f.password_field :password, autocomplete: "new-password", style:"width:500px;", placeholder:'Enter Password', class:"form-control"  %>
+  </div>
+
+   <div class="form-outline mb-4">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", style:"width:500px;", placeholder:'Reenter the Pasword', class:"form-control" %>
+  </div>
+    
+  </div>
+  
+  <div class="action">
+    <%= f.submit "Sign up", class:'btn btn-success '%>
+  </div>
+<% end %>
+
+If you already have an account: <%= render "devise/shared/links" %>
+
+  
+  <!-- <div class="row mb-4">
+    <div class="col d-flex justify-content-center">
+     
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="form1Example3"
+          checked
+        />
+        <label class="form-check-label" for="form1Example3"> Remember me </label>
+      </div>
+    </div>
+
+    <div class="col">
+      <!-- Simple link --
+      <a href="#!">Forgot password?</a>
+    </div>
+  </div> -->
+
+  <!-- Submit button -->
+  
+
+
+</center>

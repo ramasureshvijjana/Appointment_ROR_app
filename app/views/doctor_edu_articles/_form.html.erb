@@ -1,0 +1,47 @@
+<%= form_with(model: doctor_edu_article, local: true) do |form| %>
+  <% if doctor_edu_article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(doctor_edu_article.errors.count, "error") %> prohibited this doctor_edu_article from being saved:</h2>
+
+      <ul>
+        <% doctor_edu_article.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <center>
+
+  <br><br><br><br><h1>Upload Article</h1><br><br>
+
+  <div class="form-outline mb-4">
+    
+    <%= form.text_field :article_name, required: true, style:"width:500px;", placeholder:'Enter Article Name', class:"form-control", autofocus: true %>
+  </div>
+
+  <div class="form-outline mb-4">
+   
+    <%= form.text_area :about_article, required: true, style:"width:500px;", placeholder:'Write Something related to the article', class:"form-control" %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= form.file_field :article, style:"width:500px;", placeholder:'Upload your article in pdf format', class:"form-control", required: true%>
+    
+  </div>
+
+
+  <div class="field form-group">
+    <!-- Has many articles with doctor. So we give doctor_id for linking. -->
+    <!-- type: :hidden  is hide this input box to end user.-->
+    <%= form.number_field :doctor_id, value: current_doctor.id, required: true, class:"form-control", type: :hidden%>
+  
+     
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Submit', class:"btn btn-primary", style:"width:200px;"%>
+  </div>
+
+  </center>
+<% end %>

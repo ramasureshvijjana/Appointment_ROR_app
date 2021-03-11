@@ -1,0 +1,36 @@
+<br><br><table class="table table-striped table-bordered" style="width:980px;" align="center">
+
+  <tr>
+    <td>Patient Name</td>
+    <td><b><%= @patient.name %></b></td>
+  </tr>
+
+  <tr>
+    <td>Patient Age</td>
+    <td><b><%= @patient.age %></b></td>
+  </tr>
+
+  <tr>
+    <td>Problem</td>
+    <td><b><%= @patient.problem %></b></td>
+  </tr>
+
+  <tr>
+    <td>Contact Number</td>
+    <td><b><%= @patient.phone %></b></td>
+  </tr>
+
+  <tr>
+    <td>Email</td>
+    <td><b><%= @patient.email %></b></td>
+  </tr>
+
+  <tr>
+    <td>Appointment Date and Time</td>
+    <td><b><%= @patient.try(:oppointment_time).try(:strftime, ' %e / %B / %Y, Time:  %T') %></b></td>
+  </tr>
+
+</table>
+
+
+

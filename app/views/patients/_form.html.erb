@@ -1,0 +1,64 @@
+
+<script type="text/javascript">
+   
+    $('.datepicker').datepicker({ 
+        startDate: new Date()
+    });
+  
+</script>
+
+<%= form_with(model: patient, local: true) do |form| %>
+  <% if patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+        <% patient.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-outline mb-4">
+    
+    <%= form.text_field :name, style:"width:500px;", placeholder:'Enter Patient Name', class:"form-control"%>
+  </div>
+
+  <div class="form-outline mb-4">
+    
+    <%= form.number_field :age, style:"width:500px;", placeholder:'Enter Patient age', class:"form-control"%>
+  </div>
+
+  <div class="form-outline mb-4">
+    
+    <%= form.text_field :problem, style:"width:500px;", placeholder:'Enter Problem', class:"form-control"%>
+  </div>
+
+  <div class="form-outline mb-4">
+   
+    <%= form.text_field :phone, style:"width:500px;", placeholder:'Enter Phone Number', class:"form-control"%>
+  </div>
+
+  <div class="form-outline mb-4">
+   
+    <%= form.text_field :email, style:"width:500px;", placeholder:'Enter Email', class:"form-control"%>
+  </div>
+
+
+  <div class="form-outline mb-4">
+
+    <%= form.text_field :doctor_id, value: @doc.id, style:"width:500px;", class:"form-control", type: :hidden%>
+
+   
+  </div>
+
+ <div class='form-outline mb-4' id='datetimepickerDemo'>
+  <%= form.datetime_field :oppointment_time, style:"width:500px;", class:"form-control datepicker"%>   
+</div>
+
+  <div class="actions">
+    <%= form.submit 'Submit', class:'btn btn-primary' %>
+  </div>
+<% end %>
+

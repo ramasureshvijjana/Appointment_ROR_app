@@ -1,0 +1,48 @@
+<%= stylesheet_link_tag "profile"%>
+
+   
+<div class="container">
+  <div class="background">
+
+    <div class='heading1'>
+  
+      <h4>AVAILABLE DOCTORS</h4>
+
+    </div>
+  
+    <% @alldoctors.each do |doctor| %><br>
+      <center>
+        <div class="card-container">
+
+          <div class="img">
+            <%= image_tag(doctor.image, style:'width: 100%') if doctor.image.attached? %>
+          </div>
+
+          <h3><%= doctor.name %></h3>
+          <h6><%= doctor.designation %></h6><br>
+          <p><%= doctor.location %></p><br>
+        
+          <div class="buttons">
+            <button class="primary">
+              <%= link_to 'Show', show_doctor_path(doctor.id)%>
+            </button>
+
+            <button class="primary ghost">
+              <%= link_to 'Contact', new_patient_path(doctor.id) %>
+            </button>
+          </div><br>
+
+          <p><%= doctor.email %></p><br><br>
+         <!-- <p><%= doctor.id %></p><br><br>
+ -->
+        </div>
+       </center>
+            
+    <% end %>
+  
+
+<br>
+  </div>
+<br>
+</div>
+
